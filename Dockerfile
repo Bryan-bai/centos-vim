@@ -22,6 +22,8 @@ RUN rpm --rebuilddb \
 		. \
 		/root/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp \
 	&& cmake --build . --target ycm_core --config Release \
+	&& sed -i 's/^colorscheme default/"colorscheme default/g' /root/.vimrc \
+	&& sed -i 's/^"colorscheme solarized/colorscheme solarized/g' /root/.vimrc \
 	&& yum clean all \
 	&& find /usr/share \
 		-type f \
