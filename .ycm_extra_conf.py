@@ -37,7 +37,6 @@ import ycm_core
 flags = [
     '-std=c++11',
     '-O0',  
-    '-Werror', 
     '-Weverything', 
     '-Wno-documentation', 
     '-Wno-deprecated-declarations', 
