@@ -46,6 +46,7 @@ RUN rpm --rebuilddb \
     && git clone https://github.com/VundleVim/Vundle.vim.git /root/.vim/bundle/Vundle.vim \
     && vim -c PluginInstall -c q -c q \
     && cd /root/.vim/bundle/YouCompleteMe \
+    && source /opt/rh/python33/enable \
     && ./install.py --clang-completer \
     && sed -i 's/^colorscheme default/"colorscheme default/g' /root/.vimrc \
     && sed -i 's/^"colorscheme solarized/colorscheme solarized/g' /root/.vimrc \
@@ -58,6 +59,6 @@ RUN rpm --rebuilddb \
     && rm -rf /etc/ld.so.cache \
     && rm -rf /sbin/sln \
     && rm -rf /usr/{{lib,share}/locale,share/i18n,{lib,lib64}/gconv,bin/localedef,sbin/build-locale-archive} \
-    && rm -rf /opt/python27/root/usr/{{lib,share}/locale,share/i18n,{lib,lib64}/gconv,bin/localedef,sbin/build-locale-archive} \
-    && rm -rf /opt/python33/root/usr/{{lib,share}/locale,share/i18n,{lib,lib64}/gconv,bin/localedef,sbin/build-locale-archive} \
+    && rm -rf /opt/rh/python27/root/usr/{{lib,share}/locale,share/i18n,{lib,lib64}/gconv,bin/localedef,sbin/build-locale-archive} \
+    && rm -rf /opt/rh/python33/root/usr/{{lib,share}/locale,share/i18n,{lib,lib64}/gconv,bin/localedef,sbin/build-locale-archive} \
     && rm -rf /{root,tmp,var/cache/{ldconfig,yum}}/*
